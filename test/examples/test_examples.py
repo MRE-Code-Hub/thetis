@@ -62,8 +62,7 @@ all_examples = glob.glob(os.path.join(examples_dir, '*/*.py'))
 all_examples = [f for f in all_examples if f not in exclude_files]
 
 
-@pytest.fixture(params=all_examples,
-                ids=lambda x: os.path.basename(x))
+@pytest.fixture(params=all_examples)
 def example_file(request):
     return os.path.abspath(request.param)
 
